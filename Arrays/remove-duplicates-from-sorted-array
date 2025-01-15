@@ -1,0 +1,18 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        prev = 1
+        for curr in range(1, len(nums)):
+            if nums[curr] != nums[prev - 1]:
+                nums[prev] = nums[curr]
+                prev += 1
+                
+        return prev
+
+#We initialize the variable i to 1. This pointer i will be used to place the next unique element found in the array. Since the first element is always unique, we start i from 1.
+#This for loop starts with j set to 1 and iterates through the array until the end. The pointer j is used to traverse the array and check for duplicates.
+#Inside the loop, we check if the current element nums[j] is different from the previous unique element nums[i - 1]. If they are different, it means nums[j] is a unique element.
+#If the condition nums[j] != nums[i - 1] is true, we set nums[i] to nums[j], placing the unique element at the i-th position. We then increment i by 1 to prepare for the next unique element.
+#After the loop completes, we return i. This value represents the number of unique elements in the array. The first i elements of the array nums will contain the unique elements.
+#Time complexity: O(n)
+#Space complexity: O(1)
+

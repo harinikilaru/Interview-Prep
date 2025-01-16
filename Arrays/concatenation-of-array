@@ -1,0 +1,19 @@
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        return nums * 2
+
+#Use the * operator to repeat the list twice.
+#Return the new list.
+#Time complexity: O(n)
+#Space complexity: O(n),
+
+
+
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        result = [0] * (2 * n)  # Create a new list of size 2n
+        for i in range(n):
+            result[i] = nums[i]      # Copy the first part
+            result[i + n] = nums[i]  # Copy the second part
+        return result

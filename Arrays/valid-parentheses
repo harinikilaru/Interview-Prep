@@ -1,0 +1,16 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        brackets = {'{': '}', '(': ')', '[': ']'}
+        
+        stack = []
+        for char in s:
+            if char in brackets:
+                stack.append(char)
+            elif not stack or brackets[stack.pop()] != char:
+                return False
+            
+        return not stack
+	
+# 1. if it's the left bracket then we append it to the stack
+# 2. else if it's the right bracket and the stack is empty(meaning no matching left bracket), or the left bracket doesn't match
+# 3. finally check if the stack still contains unmatched left bracket
